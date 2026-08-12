@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>일차방정식 온라인테스트</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">수학교육 연구용 1차 시험판</p>
+        <h1>일차방정식 온라인테스트</h1>
+        <p>학생 ID를 입력하고 3문항을 푼 뒤, 제출 결과와 저장 데이터를 확인합니다.</p>
+      </header>
+
+      <section id="start-screen" class="card">
+        <div class="section-heading">
+          <span class="step-badge">1</span>
+          <div>
+            <h2>학생 ID 입력</h2>
+            <p>연구용 학생 ID를 입력해 주세요. 예: S001</p>
+          </div>
+        </div>
+        <form id="start-form" class="stack-form">
+          <label for="student-id">학생 ID</label>
+          <input id="student-id" name="student-id" type="text" placeholder="S001" autocomplete="off" />
+          <p id="start-error" class="error-message" role="alert"></p>
+          <button class="primary-button" type="submit">테스트 시작</button>
+        </form>
+      </section>
+
+      <section id="test-screen" class="hidden">
+        <div class="test-topline">
+          <div>
+            <p class="eyebrow">TEST_DEMO_01</p>
+            <h2>일차방정식 3문항</h2>
+          </div>
+          <div class="student-chip">학생 ID: <strong id="active-student-id"></strong></div>
+        </div>
+        <div id="question-list" class="question-list"></div>
+        <div id="submit-warning" class="warning-box hidden"></div>
+        <button id="submit-button" class="primary-button submit-button" type="button">답안 제출</button>
+      </section>
+
+      <section id="result-screen" class="hidden">
+        <div class="result-header card">
+          <p class="eyebrow">제출 완료</p>
+          <h2>결과를 확인해 보세요</h2>
+          <p id="result-message"></p>
+          <div class="score-highlight"><span id="total-score">0</span><small>/ 3점</small></div>
+        </div>
+
+        <div class="card">
+          <div class="section-heading compact">
+            <span class="step-badge">결과</span>
+            <div>
+              <h2>문항별 결과</h2>
+              <p>각 문항의 답, 정답 여부, 점수, 걸린 시간을 확인할 수 있습니다.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>문항</th>
+                  <th>유형</th>
+                  <th>학생 답</th>
+                  <th>정답</th>
+                  <th>결과</th>
+                  <th>점수</th>
+                  <th>걸린 시간</th>
+                </tr>
+              </thead>
+              <tbody id="result-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card saved-data-card">
+          <div class="section-heading compact">
+            <span class="step-badge">데이터</span>
+            <div>
+              <h2>저장되는 데이터</h2>
+              <p>제출 후 시스템이 남긴 응시 기록과 문항별 응답입니다.</p>
+            </div>
+          </div>
+          <div id="attempt-data" class="data-summary"></div>
+          <h3>문항별 응답 데이터</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>response_id</th>
+                  <th>item_id</th>
+                  <th>student_answer</th>
+                  <th>is_correct</th>
+                  <th>score</th>
+                  <th>time_spent_sec</th>
+                  <th>answered_at</th>
+                </tr>
+              </thead>
+              <tbody id="data-table-body"></tbody>
+            </table>
+          </div>
+          <details class="raw-data">
+            <summary>원본 데이터(JSON) 보기</summary>
+            <pre id="raw-json"></pre>
+          </details>
+        </div>
+
+        <button id="restart-button" class="secondary-button" type="button">새로운 응시 시작</button>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
