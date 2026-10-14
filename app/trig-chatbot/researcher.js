@@ -28,6 +28,8 @@ if (session) {
   }).map(([key, value]) => `<div class="summary-row"><span>${escapeHtml(key)}</span><strong>${escapeHtml(value)}</strong></div>`).join("");
   $("#message-table").innerHTML = session.messages.map((message) => `
     <tr><td>${message.message_order}</td><td>${escapeHtml(message.speaker)}</td><td>${escapeHtml(message.message_text)}</td><td>${escapeHtml(message.responds_to_message_id || "-")}</td><td>${escapeHtml(message.timestamp)}</td></tr>`).join("");
+  $("#request-table").innerHTML = (session.ai_requests || []).map((request) => `
+    <tr><td>${escapeHtml(request.status)}</td><td>${escapeHtml(request.attempt_count)}</td><td>${escapeHtml(request.source_message_id)}</td><td>${escapeHtml(request.error_code || "-")}</td><td>${escapeHtml(request.ended_at || request.started_at)}</td></tr>`).join("");
   $("#raw-json").textContent = JSON.stringify(session, null, 2);
   $("#json-button").addEventListener("click", () => download(`${session.session_id}.json`, JSON.stringify(session, null, 2), "application/json;charset=utf-8"));
   $("#csv-button").addEventListener("click", () => {

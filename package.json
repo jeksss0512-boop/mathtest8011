@@ -1,0 +1,7 @@
+{
+  "name": "mathtest0812",
+  "private": true,
+  "scripts": {
+    "dev": "node server.mjs"
+  }
+}
