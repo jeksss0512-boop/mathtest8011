@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>삼각비 생각 나누기</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">수학교육 연구용 연습용 프로토타입</p>
+          <h1>삼각비 생각 나누기</h1>
+        </div>
+        <span class="prototype-badge">연습용 프로토타입</span>
+      </header>
+
+      <section id="start-screen" class="panel intro-panel">
+        <p class="step-label">1단계 · 시작</p>
+        <h2>학생 ID를 입력해 주세요</h2>
+        <p class="muted">이름 대신 연구용 ID를 사용합니다. 예: S001</p>
+        <form id="start-form" class="stack-form">
+          <label for="student-id">학생 ID</label>
+          <input id="student-id" name="student-id" type="text" autocomplete="off" placeholder="S001" />
+          <p id="start-error" class="error" role="alert"></p>
+          <button class="primary-button" type="submit">활동 시작</button>
+        </form>
+        <div id="draft-notice" class="notice hidden"></div>
+        <button id="resume-draft-button" class="text-button hidden" type="button">이전 활동 이어하기</button>
+      </section>
+
+      <section id="activity-screen" class="hidden">
+        <div class="activity-heading">
+          <div>
+            <p class="step-label">2단계 · 문제와 생각</p>
+            <h2>문제를 읽고 생각을 적어 주세요</h2>
+          </div>
+          <button id="resume-button" class="text-button hidden" type="button">임시 저장 이어하기</button>
+        </div>
+
+        <article class="problem-card">
+          <div class="problem-meta">삼각비 · 문제 1</div>
+          <h3>다음 직각삼각형 ABC에서 ∠A와 ∠C의 삼각비의 값을 각각 구하시오.</h3>
+          <img src="./assets/problem-trig-138-01.png" alt="A, B, C로 표시된 직각삼각형. AB는 24, BC는 7, AC는 25이며 B가 직각이다." />
+          <p class="figure-caption">∠B=90°, AB=24, BC=7, AC=25</p>
+        </article>
+
+        <section class="chat-card" aria-labelledby="chat-title">
+          <div class="chat-heading">
+            <div>
+              <p class="step-label">대화 활동</p>
+              <h3 id="chat-title">생각을 말해 주세요</h3>
+            </div>
+            <span id="save-status" class="save-status">아직 저장하지 않음</span>
+          </div>
+          <div id="message-list" class="message-list" aria-live="polite"></div>
+          <form id="message-form" class="message-form">
+            <label id="message-label" for="message-input">문제를 읽고, 먼저 살펴볼 각이나 변을 자유롭게 적어 주세요.</label>
+            <textarea id="message-input" rows="4" placeholder="예: ∠A를 기준으로 어떤 변을 봐야 할지 생각해 보았어요."></textarea>
+            <p id="message-error" class="error" role="alert"></p>
+            <div class="button-row">
+              <button id="send-button" class="primary-button" type="submit">생각 저장</button>
+              <button id="end-button" class="secondary-button" type="button">활동 종료</button>
+            </div>
+          </form>
+        </section>
+      </section>
+
+      <section id="end-screen" class="panel hidden">
+        <p class="step-label">3단계 · 종료</p>
+        <h2 id="end-title">활동이 종료되었습니다</h2>
+        <p id="end-message" class="muted"></p>
+        <div id="end-summary" class="summary-box"></div>
+        <div class="button-row">
+          <button id="new-activity-button" class="primary-button" type="button">새 활동 시작</button>
+          <a class="secondary-button link-button" href="./researcher.html">연구자 로그 확인</a>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연구자 로그 확인</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">개발 확인용 화면</p>
+          <h1>연구자 로그 확인</h1>
+        </div>
+        <a class="secondary-button link-button" href="./index.html">학생 화면으로</a>
+      </header>
+      <section class="panel">
+        <div id="empty-state" class="muted">아직 저장된 활동이 없습니다.</div>
+        <div id="log-content" class="hidden">
+          <div id="session-summary" class="summary-box"></div>
+          <div class="button-row">
+            <button id="json-button" class="primary-button" type="button">JSON 내려받기</button>
+            <button id="csv-button" class="secondary-button" type="button">CSV 내려받기</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>순서</th><th>발화자</th><th>내용</th><th>응답 대상</th><th>시간</th></tr></thead>
+              <tbody id="message-table"></tbody>
+            </table>
+          </div>
+          <details class="raw-data"><summary>연구용 메타데이터 보기</summary><pre id="raw-json"></pre></details>
+        </div>
+      </section>
+    </main>
+    <script src="./researcher.js"></script>
+  </body>
+</html>

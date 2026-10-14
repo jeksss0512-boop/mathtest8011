@@ -1,0 +1,39 @@
+# 비밀 설정과 API 키
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*api-key*
+*apikey*
+*secret*
+secrets/
+
+# 실제 연구자료와 개인 식별 정보
+data/raw/
+data/real/
+data/private/
+research-data/
+student-data/
+실제학생자료/
+개인정보/
+개인식별정보/
+*학생원본*
+*실명*
+
+# 빌드 결과와 임시 파일
+node_modules/
+dist/
+build/
+.next/
+.vercel/
+tmp/
+temp/
+*.tmp
+*.log
+
+# 운영체제·편집기 파일
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
